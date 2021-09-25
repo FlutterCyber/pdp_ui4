@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.transparent,
         title: Text(
           "Cars",
-          style: TextStyle(fontSize: 25, color: Colors.black),
+          style: TextStyle(fontSize: 25, color: Colors.red),
         ),
         // appbarni tepasida soat antenna zaryadla ko'rinib turishi uchun kk
         brightness: Brightness.light,
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             },
             icon: Icon(
               Icons.notifications_none,
-              color: Colors.black,
+              color: Colors.red,
             ),
           ),
           IconButton(
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             },
             icon: Icon(
               Icons.shopping_cart,
-              color: Colors.black,
+              color: Colors.red,
             ),
           ),
         ],
@@ -88,13 +88,14 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         margin: EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
-          color: type ? Colors.grey[200]! : Colors.transparent,
+          color: type ? Colors.red : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(
           child: Text(
             text,
             style: TextStyle(
+                color: type ? Colors.white : Colors.black,
                 fontSize: type ? 20 : 17,
                 fontWeight: type ? FontWeight.bold : FontWeight.normal),
           ),
@@ -148,39 +149,65 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "PDP Car",
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    Row(
+                      children: [
+                        Container(
+                          child: Text(
+                            "PDP Car",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Container(
+                          width: 10,
+                        ),
+                        Container(
+                          child: Text(
+                            "Electric",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Electric",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      "100\$",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 )),
-                Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.favorite_border,
-                      size: 20,
-                    ),
-                  ),
-                ),
               ],
             ),
-            Text(
-              "100\$",
-              style: TextStyle(color: Colors.white, fontSize: 25),
+            Container(
+              height: 35,
+              width: 35,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.red,
+              ),
+              child: Center(
+                child: Icon(
+                  Icons.favorite_border,
+                  size: 20,
+                  color: Colors.white,
+                ),
+              ),
             ),
+
+            // Text(
+            //   "100\$",
+            //   style: TextStyle(color: Colors.white, fontSize: 25),
+            // ),
           ],
         ),
       ),
